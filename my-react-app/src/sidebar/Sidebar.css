@@ -1,0 +1,112 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.sidebar{
+    position: fixed;
+    background-color:#ffff;
+    color: black;
+    top: 0;
+    left: 0;
+    max-height: 90vh;
+    height: 100vh;
+    width: 250px;
+    padding-top: 75px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* .sidebar li{
+    list-style: none;
+    padding: 1rem 2rem;
+    border-bottom: solid rgba(255, 255, 255, 0.1);
+} */
+
+
+.projects {
+    margin-bottom: 20px;
+    border-top: 0.1rem solid rgb(215, 212, 212);
+
+  }
+  
+  .projects a {
+    display: block;
+    color: #C4C4C4;
+    text-decoration: none;
+    /* text-align: center; */
+    font-size: 14px;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    padding-left: 3rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .projects a span{
+    color: #C4C4C4 ;
+  }
+
+  .projects a span:hover{
+    cursor: pointer;
+    color: #FA782F;
+  }
+  .projects a img{
+    width: 20px;
+    height: 20px;
+  }
+ /* Styles for the sidebar when collapsed */
+.sidebar.collapsed {
+    width: 50px; /* Adjust the width as needed when collapsed */
+     
+
+  }
+  
+  .top-Elements {
+    padding: 10px;
+  }
+  
+  .projects {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .projects a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .projects img {
+    margin-right: 10px;
+  }
+  
+  .bottom-elements {
+    margin-top: auto;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 50px; /* Set the width to the collapsed state for mobile view */
+    }
+  
+    .sidebar.collapsed {
+      width: 50px; /* Make sure the collapsed style is applied for mobile view */
+    }
+
+  }
+  @media (max-width: 1025px) {
+    .sidebar {
+      width: 50px; /* Set the width to the collapsed state for mobile view */
+    }
+  
+    .sidebar.collapsed {
+      width: 50px; /* Make sure the collapsed style is applied for mobile view */
+    }
+
+  }

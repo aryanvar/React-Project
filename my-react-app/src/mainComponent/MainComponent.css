@@ -1,0 +1,133 @@
+.heading{
+    width: calc(100% - 250px);
+    float: right;
+    /* padding: 1rem 2rem; */
+    height: 100vh;
+}
+.positioning{
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.positioning button{
+    width: 10%;
+    height: 5%;
+    margin-top: 20px;
+}
+.card-wrapper{
+    margin:0 2rem ;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.card {
+    width: 23%;
+    text-align: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    line-height: 4px;
+    
+}
+.card img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card p{
+    text-align: center;
+}
+.card a{
+    color: #FA782F;
+    text-decoration: none;
+}
+
+.Edit-Delete{
+    padding-top: 1.3rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.Edit-Delete button{
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.Edit-Delete button:hover {
+    background-color: #FA782F;
+    color: #fff;
+    border-color: #FA782F;
+  }
+
+  .card-modal{
+    /* font-size: 10px; */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+  }
+
+  /* Add this to your CSS file or style section */
+
+.delete-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .delete-modal p {
+    margin-bottom: 10px;
+  }
+  
+  .delete-modal button {
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .delete-modal button:nth-child(2) {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  .delete-modal button:nth-child(1) {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+  }
+  
+  @media (max-width: 768px) {
+    .heading.collapsed{
+        width: calc(100% - 50px);
+    }
+
+    .positioning button{
+
+    }
+
+  }
+  @media(max-width:1025px){
+    .card{
+        width: 38%;
+    }
+    .heading.collapsed{
+        width: calc(100% - 50px);
+    }
+  }

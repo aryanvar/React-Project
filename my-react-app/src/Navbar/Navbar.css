@@ -1,0 +1,75 @@
+/* Assuming this is your Navbar.css file */
+
+/* .container {
+    max-width: 600px;
+    margin: 0 auto;
+  } */
+  
+  .navbar {
+    background-color:#ffff;
+    /* padding: 0.2rem; */
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5.5rem;
+    padding-top: 0.2rem;
+    padding-right: 4rem;
+  }
+  .images1{
+    height: 27px;
+    width: 76px;
+    text-align: center;
+  }
+  .navbar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+  }
+  
+  .navbar-items {
+    /* margin-right: 1rem; */
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .navbar-items a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  .colored{
+    color: #FA782F;
+    font-size: 10px;
+    margin: 0;
+  }
+  .profile{
+    margin: 0.5rem;
+  }
+  .profile-photo{
+    width: 36px;
+    height: 36px;
+    padding-top: 0.2rem;
+    padding-left: 0.4rem;
+    display: flex;
+  }
+  .dropdown{
+    font-size: 15px;
+    width: 12px;
+    height: 6px;
+    /* justify-content: baseline; */
+    display: flex;
+    align-items: center;
+    padding-top: 0.8rem;
+    padding-left: 0.4rem;
+  }
+  /* Add media query for responsiveness */
+  @media (max-width: 768px) {
+    /* No changes for mobile view, keep existing styles */
+    .navbar {
+      padding-left: 1rem; /* Adjust padding if needed */
+      padding-right: 1rem; /* Adjust padding if needed */
+    }
+  }
