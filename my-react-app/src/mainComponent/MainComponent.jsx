@@ -1,37 +1,47 @@
-import React, {useState,useEffect} from 'react'
-import moduleName from 'axios'
-import'./MainComponent.css'
-import axios from 'axios';
-import AddCardModal from '../Modal/AddCardModal';
-import EditCardModal from '../Modal/EditCardModal';
-import CardDetail from '../Modal/CardDetail';
+import React, { useState, useEffect } from "react";
+import moduleName from "axios";
+import "./MainComponent.css";
+import axios from "axios";
+import AddCardModal from "../Modal/AddCardModal";
+import EditCardModal from "../Modal/EditCardModal";
+import CardDetail from "../Modal/CardDetail";
 const MainComponent = (isCollapsed) => {
   const [imageData, setImages] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://picsum.photos/v2/list?page=1&limit=6', {
-         
-        });
+        const response = await axios.get(
+          "https://picsum.photos/v2/list?page=1&limit=6",
+          {}
+        );
         const limitedImages = response.data.slice(0, 6);
 
         setImages(limitedImages);
       } catch (error) {
-        console.error('Error fetching images:', error);
+        console.error("Error fetching images:", error);
       }
     };
 
     fetchData();
   }, []);
 
-
   const [cards, setCards] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const handleAddCard = (newCard) => {
+    // Include the image data in the card
+    const imageIndex = Math.floor(Math.random() * imageData.length);
+    const randomImage = imageData[imageIndex];
+
+    const cardWithImage = {
+      ...newCard,
+      image: randomImage.download_url,
+    };
+
     // Update the state to add the new card
-    setCards((prevCards) => [...prevCards, newCard]);
+    setCards((prevCards) => [...prevCards, cardWithImage]);
+    setShowModal(false); // Close the modal after adding the card
   };
 
   const openModal = () => {
@@ -41,7 +51,6 @@ const MainComponent = (isCollapsed) => {
   const closeModal = () => {
     setShowModal(false);
   };
-
   const [editCard, setEditCard] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
 
@@ -68,7 +77,9 @@ const MainComponent = (isCollapsed) => {
   };
 
   const confirmDeleteCard = () => {
-    setCards((prevCards) => prevCards.filter((card) => card.id !== deleteCardId));
+    setCards((prevCards) =>
+      prevCards.filter((card) => card.id !== deleteCardId)
+    );
     setShowDeleteModal(false);
   };
 
@@ -76,24 +87,30 @@ const MainComponent = (isCollapsed) => {
     setDeleteCardId(null);
     setShowDeleteModal(false);
   };
-  
+
   const [selectedCard, setSelectedCard] = useState(null);
-  const [showDetailsModal, setShowDetailsModal] = useState(false);  
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
   const handleCardClick = (card) => {
     setSelectedCard(card);
     setShowDetailsModal(true);
   };
 
   return (
-<div className={`heading ${isCollapsed ? 'collapsed' : ''}`}>
-      <div className='positioning' >
+    <div className={`heading ${isCollapsed ? "collapsed" : ""}`}>
+      <div className="positioning">
         <h1>My Projects</h1>
-        <button  className="card-modal" onClick={openModal}>Add Card</button>
+        <button className="card-modal" onClick={openModal}>
+          Add Card
+        </button>
       </div>
       <div className="card-wrapper">
-      {imageData.map((image) => (
+        {imageData.map((image) => (
           <div className="card" key={image.id}>
-            <img src={image.download_url} alt={`Project ${image.id}`} />
+            {image.download_url ? (
+              <img src={image.download_url} alt={`Project ${image.id}`} />
+            ) : (
+              <div className="placeholder">No Image Available</div>
+            )}
             <p className="card-modal" onClick={openModal}>
               Create a New Project
             </p>
@@ -108,12 +125,13 @@ const MainComponent = (isCollapsed) => {
         ))}
         {cards.map((card, index) => (
           <div className="card" key={index}>
+            <img src={card.image} alt={`Project ${index + 1}`} />
             <p>Title: {card.title}</p>
             <p>Description: {card.description}</p>
             <div className="Edit-Delete">
-            <button onClick={() => openEditModal(card)}>Edit</button>
-            <button onClick={() => handleDeleteCard(card.id)}>Delete</button>
-            <button onClick={() => handleCardClick(card)}>View more</button>
+              <button onClick={() => openEditModal(card)}>Edit</button>
+              <button onClick={() => handleDeleteCard(card.id)}>Delete</button>
+              <button onClick={() => handleCardClick(card)}>View more</button>
             </div>
           </div>
         ))}
@@ -128,20 +146,20 @@ const MainComponent = (isCollapsed) => {
           onClose={() => setShowEditModal(false)}
         />
       )}
-       {showDeleteModal && (
+      {showDeleteModal && (
         <div className="delete-modal">
-            <button onClick={confirmDeleteCard}>Yes</button>
-            <button onClick={cancelDeleteCard}>No</button>
+          <button onClick={confirmDeleteCard}>Yes</button>
+          <button onClick={cancelDeleteCard}>No</button>
         </div>
       )}
-{showDetailsModal && (
+      {showDetailsModal && (
         <CardDetail
           card={selectedCard}
           onClose={() => setShowDetailsModal(false)}
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default MainComponent
+export default MainComponent;

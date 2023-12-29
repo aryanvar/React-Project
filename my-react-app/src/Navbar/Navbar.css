@@ -1,20 +1,11 @@
-/* Assuming this is your Navbar.css file */
 
-/* .container {
-    max-width: 600px;
-    margin: 0 auto;
-  } */
-  
   .navbar {
     background-color:#ffff;
-    /* padding: 0.2rem; */
     position: relative;
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    padding-left: 5.5rem;
-    padding-top: 0.2rem;
-    padding-right: 4rem;
+    padding: 1rem 4.5rem;
   }
   .images1{
     height: 27px;
@@ -30,7 +21,6 @@
   }
   
   .navbar-items {
-    /* margin-right: 1rem; */
     font-size: 14px;
     margin: 0;
   }
@@ -59,7 +49,6 @@
     font-size: 15px;
     width: 12px;
     height: 6px;
-    /* justify-content: baseline; */
     display: flex;
     align-items: center;
     padding-top: 0.8rem;
@@ -67,9 +56,9 @@
   }
   /* Add media query for responsiveness */
   @media (max-width: 768px) {
-    /* No changes for mobile view, keep existing styles */
+
     .navbar {
-      padding-left: 1rem; /* Adjust padding if needed */
-      padding-right: 1rem; /* Adjust padding if needed */
+      padding-left: 1rem; 
+      padding-right: 1rem;
     }
   }

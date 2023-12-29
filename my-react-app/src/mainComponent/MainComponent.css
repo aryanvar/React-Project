@@ -10,7 +10,7 @@
     justify-content: space-between;
 }
 .positioning button{
-    width: 10%;
+    width: 27%;
     height: 5%;
     margin-top: 20px;
 }
@@ -25,7 +25,7 @@
 .card {
     width: 23%;
     text-align: center;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 1rem;
     line-height: 4px;
@@ -118,12 +118,8 @@
         width: calc(100% - 50px);
     }
 
-    .positioning button{
-
-    }
-
   }
-  @media(max-width:1025px){
+  @media(max-width:1024px){
     .card{
         width: 38%;
     }
@@ -131,3 +127,23 @@
         width: calc(100% - 50px);
     }
   }
+  @media(max-width:750px){
+    .card{
+        width: 100%;
+    }
+    .heading.collapsed{
+        width: calc(100% - 50px);
+    }
+    .card p {
+      line-height: 1.4; /* Adjust the line height for smaller screens */
+  }
+
+  .card a {
+      display: block; /* Make anchor tags full-width */
+      margin-top: 10px; 
+  }
+
+  .positioning h1{
+    font-size: 27px;
+  }
+}
